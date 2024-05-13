@@ -1,11 +1,8 @@
 /*
- * Copyright (c) 2021-22 purple-rw
+ * Copyright (c) 2024 miketronic
  *
  * SPDX-License-Identifier: MIT
  *
- * Note: The nice!nano v2 is pushed in ~2.54mm so that it does not stick out from the PCB.
- *       However, the first 4 pins near the USB-C port from each side are still connected
- *       to the same location, so the pins need to be slanted.
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
@@ -74,12 +71,5 @@
             , <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
-    };
-
-    backlight: pwmleds {
-        compatible = "pwm-leds";
-        pwm_led_0 {
-            pwms = <&pwm0 0 10000 PWM_POLARITY_NORMAL>;
-        };
     };
 };
