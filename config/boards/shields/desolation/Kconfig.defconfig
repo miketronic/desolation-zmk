@@ -1,19 +1,9 @@
-# Copyright (c) 2021 purple-rw
+# Copyright (c) 2024 miketronic
 # SPDX-License-Identifier: MIT
 
-if SHIELD_DILLY
+if SHIELD_DESOLATION
 
 config ZMK_KEYBOARD_NAME
-    default "Dilly"
+    default "Desolation"
 
 endif
-
-if ZMK_BACKLIGHT
-
-config PWM
-    default y
-
-config LED_PWM
-    default y
-
-endif # ZMK_BACKLIGHT
