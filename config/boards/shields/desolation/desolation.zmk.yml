@@ -6,3 +6,4 @@ url: none yet
 requires: [pro_micro]
 features:
   - keys
+  - display
