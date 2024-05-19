@@ -357,6 +357,8 @@
                 &none &kp PG_DN  &trans  &kp LC(BSPC) &none               &kp LC(Z)    &none       &kp LC(Y)       &none    &none
                 &trans            &trans          &trans  &none  &none     &trans      &trans      &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
     };
 };
