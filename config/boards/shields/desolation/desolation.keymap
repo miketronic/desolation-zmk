@@ -307,18 +307,18 @@
 //                     |   CCCV  |SPC/SHFT | RETURN  |    X    |   SPC   | SPC/ENT |   Paste |
 // ---------------------------------------------------------------------------------------------------------------
             bindings = <
-                &none &kp TAB     &tdW          &kp F       &lt NUM G    &kp M  &kp L  &kp U  &kp BSPC &none
-                &none &kp LSHIFT  &lt MACRO A   &kp R       &lt SYM S    &kp N  &kp E  &kp I  &kp DEL  &none
-                &none &lt FN C    &hrm LCTRL D  &hrm LALT T &lt MOUSE H  &tdO   &tdY   &kp SLASH       &none
+                &none &kp TAB     &tdW         &kp F         &lt NUM G    &kp M        &kp L  &kp U  &kp BSPC  &none
+                &none &kp LSHIFT  &lt MACRO A  &kp R         &lt SYM S    &kp N        &kp E  &kp I  &kp DEL   &none
+                &none &none       &lt FN C     &hrm LCTRL D  &hrm LALT T  &lt MOUSE H  &tdO   &tdY   &kp SLASH &none
                 &cccv LC(C) LC(V) &mt LSHIFT SPC &mt LSHIFT SPC &mt LSHIFT SPC  &mt RSHIFT RET &mt RSHIFT RET &mt RSHIFT RET &mt RSHIFT RET
             >;
         };
 
         SYM_layer {
             bindings = <
-                &none &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &par    &bkt   &thn     &none             &none
-                &none &kp GRAVE   &kp TILDE   &kp UNDER   &none       &none   &cln    &sls   &pipe    &kp BSLH  &none
-                &none &none       &none       &kp PLUS    &kp MINUS   &none   &qot    &at    &perc    &kp SEMI  &none
+                &none  &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &par   &bkt   &thn    &none     &none
+                &none  &kp GRAVE   &kp TILDE   &kp UNDER   &none       &cln   &sls   &pipe   &kp BSLH  &none
+                &none  &none       &none       &kp PLUS    &kp MINUS   &qot   &at    &perc   &kp SEMI  &none
                 &trans      &trans      &trans &none  &none     &trans  &trans  &trans
             >;
         };
@@ -334,9 +334,9 @@
 
         MOUSE_layer {
             bindings = <
-                &none &kp PG_UP  &msc SCRL_UP            &mmv MOVE_UP      &msc SCRL_DOWN     &kp MINUS   &none    &none     &kp BSPC &none
-                &none &kp END    &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mmv MOVE_RIGHT          &kp UNDER   &none    &none     &none    &none
-                &none &kp PG_DN  &mkp LCLK             &mkp MCLK             &mkp RCLK        &none       &none    &none     &none    &none
+                &none &kp PG_UP  &msc SCRL_UP      &mmv MOVE_UP      &msc SCRL_DOWN   &kp MINUS   &none    &none     &kp BSPC &none
+                &none &kp END    &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mmv MOVE_RIGHT  &kp UNDER   &none    &none     &none    &none
+                &none &kp PG_DN  &mkp LCLK         &mkp MCLK         &mkp RCLK        &none       &none    &none     &none    &none
                            &none &mkp LCLK    &mkp MCLK   &mkp RCLK          &trans      &trans      &trans  &none
             >;
         };
