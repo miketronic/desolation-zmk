@@ -3,6 +3,8 @@
  *
  * SPDX-License-Identifier: MIT
  *
+ * 3 COL Setup
+ *
  */
 
 #include <behaviors.dtsi>
@@ -31,12 +33,6 @@
 
 / {
     combos {
-        compatible = "zmk,combos";
-        combo_bootloader {
-            timeout-ms = <50>;
-            key-positions = <0 1 2>;
-            bindings = <&bootloader>;
-        };
 
         compatible = "zmk,combos";
         combo_q {
@@ -182,12 +178,36 @@
             bindings = <&kp AT>, <&kp HASH>;
         };
 
+        grvtld: tap_dance_gravetilde {
+            compatible = "zmk,behavior-tap-dance";
+            label = "tap_dance_gravetilde";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp GRAVE>, <&kp TILDE>;
+        };
+
         perc: tap_dance_perc {
             compatible = "zmk,behavior-tap-dance";
             label = "tap_dance_perc";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp PRCNT>, <&kp DLLR>;
+        };
+
+        pg: tap_dance_pg {
+            compatible = "zmk,behavior-tap-dance";
+            label = "tap_dance_pg";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp PG_DN>, <&kp PG_UP>;
+        };
+
+        hmend: tap_dance_hmend {
+            compatible = "zmk,behavior-tap-dance";
+            label = "tap_dance_hmend";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp END>, <&kp HOME>;
         };
 
         tdW: tap_dance_W {
@@ -307,58 +327,56 @@
 //                     |   CCCV  |SPC/SHFT | RETURN  |    X    |   SPC   | SPC/ENT |   Paste |
 // ---------------------------------------------------------------------------------------------------------------
             bindings = <
-                &none &kp TAB     &tdW         &kp F         &lt NUM G    &kp M        &kp L  &kp U  &kp BSPC  &none
-                &none &kp LSHIFT  &lt MACRO A  &kp R         &lt SYM S    &kp N        &kp E  &kp I  &kp DEL   &none
-                &none &none       &lt FN C     &hrm LCTRL D  &hrm LALT T  &lt MOUSE H  &tdO   &tdY   &kp SLASH &none
-                &cccv LC(C) LC(V) &mt LSHIFT SPC &mt LSHIFT SPC &mt LSHIFT SPC  &mt RSHIFT RET &mt RSHIFT RET &mt RSHIFT RET &mt RSHIFT RET
+                &none &none       &tdW         &kp F          &lt NUM G          &kp M          &kp L    &kp U        &none &none
+                &none &none       &lt MACRO A  &kp R          &lt SYM S          &kp N          &kp E    &kp I        &none &none
+                &none &none       &lt FN C     &hrm LCTRL D   &hrm LALT T        &lt MOUSE H    &tdO     &tdY         &none &none
+                &cccv LC(C) LC(V) &none        &mt LSHIFT SPC &mt LSHIFT SPC     &mt RSHIFT RET &mt RSHIFT RET &kc DEL  &kc BSPC
             >;
         };
 
         SYM_layer {
             bindings = <
-                &none  &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &par   &bkt   &thn    &none     &none
-                &none  &kp GRAVE   &kp TILDE   &kp UNDER   &none       &cln   &sls   &pipe   &kp BSLH  &none
-                &none  &none       &none       &kp PLUS    &kp MINUS   &qot   &at    &perc   &kp SEMI  &none
-                &trans      &trans      &trans &none  &none     &trans  &trans  &trans
+                &none &none       &grvtld   &kp STAR    &none                  &par   &bkt   &thn         &none &none
+                &none &none       &none     &kp PLUS    &none                  &cln   &sls   &pipe        &none &none
+                &none &none       &none     &none       &none                  &qot   &at    &perc        &none &none
+                                   &trans  &trans  &trans  &none       &none  &trans &trans  &trans
             >;
         };
 
         NUM_layer {
             bindings = <
-                &none &kp TAB   &kp MINUS   &kp UNDER   &none       &kp N7      &kp N8      &kp N9      &kp BSPC &none
-                &none &none     &none       &none       &none       &kp N4      &kp N5      &kp N6      &none    &none
-                &none &none     &bootloader &none       &none       &kp N1      &td20       &kp N3      &none    &none
-                &trans      &trans      &trans  &none  &none    &trans      &trans      &trans
+                &none &none       &kp TAB      &kp STAR  &none            &kp N7   &kp N8   &kp N9         &none &none
+                &none &none       &none        &none     &none            &kp N4   &kp N5   &kp N6         &none &none
+                &none &none       &bootloader  &none     &none            &kp N1   &td20    &kp N3         &none &none
+                        &trans  &trans       &trans      &none            &none    &trans   &trans         &trans
             >;
         };
 
         MOUSE_layer {
             bindings = <
-                &none &kp PG_UP  &msc SCRL_UP      &mmv MOVE_UP      &msc SCRL_DOWN   &kp MINUS   &none    &none     &kp BSPC &none
-                &none &kp END    &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mmv MOVE_RIGHT  &kp UNDER   &none    &none     &none    &none
-                &none &kp PG_DN  &mkp LCLK         &mkp MCLK         &mkp RCLK        &none       &none    &none     &none    &none
-                           &none &mkp LCLK    &mkp MCLK   &mkp RCLK          &trans      &trans      &trans  &none
+                &none &none      &msc SCRL_UP    &mmv MOVE_UP     &msc SCRL_DOWN           &kp MINUS   &none  &kp BSPC      &none &none
+                &none &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT          &kp UNDER   &none  &none         &none &none
+                &none &none      &mkp MCLK       &mkp LCLK        &mkp RCLK                &none       &none  &none         &none &none
+                      &none      &mkp MCLK       &mkp LCLK        &mkp RCLK                &trans      &trans &trans        &none
             >;
         };
 
         MACRO_layer {
             bindings = <
-                &none &none      &none       &none       &none        &none       &none    &none     &kp BSPC &none
-                &none &none      &trans      &lines      &square      &none       &none    &none     &none    &none
-                &none &none      &none       &date       &time        &th         &re      &yw       &none    &none
-                &trans          &trans          &trans  &none  &none        &trans      &trans      &trans
+                &none &none       &none   &none   &none           &none &none  &none         &none &none
+                &none &none       &trans  &lines  &square         &none &none  &none         &none &none
+                &none &none       &none   &date   &time           &th   &re    &yw           &none &none
+                      &trans      &trans  &trans  &none           &none &trans &trans        &trans
             >;
         };
 
         FN_layer {
             bindings = <
-                &none &kp TAB    &cccv LC(C) LC(V)   &kp LC(LA(Q)) &kp LC(LA(G))     &kp F2       &kp UP      &kp BSPC      &kp BSPC &none
-                &none &kp END    &none   &none      &none                 &kp LEFT     &kp DOWN    &kp RIGHT  &kp DEL &none
-                &none &kp PG_DN  &trans  &kp LC(BSPC) &none               &kp LC(Z)    &none       &kp LC(Y)       &none    &none
-                &trans            &trans          &trans  &none  &none     &trans      &trans      &trans
+                &none &none   &cccv LC(C) LC(V)  &kp LC(LA(Q))   &kp LC(LA(G))    &kp F2       &kp UP      &kp DEL    &none &none
+                &none &none   &kp TAB            &none           &pg              &kp LEFT     &kp DOWN    &kp RIGHT  &none &none
+                &none &none   &trans             &kp LC(BSPC)    &hmend           &kp LC(Z)    &kp DEL     &kp LC(Y)  &none &none
+                      &trans  &trans             &trans          &none            &none        &trans      &trans     &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
     };
 };
