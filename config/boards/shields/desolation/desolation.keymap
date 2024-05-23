@@ -24,7 +24,7 @@
 
 
 &mt {
-    tapping_term_ms = <180>;
+    tapping_term_ms = <160>;
 };
 
 &lt {
@@ -234,7 +234,7 @@
         td20: tap_dance_20 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             bindings = <&kp N2>, <&kp N0>;
         };
 
