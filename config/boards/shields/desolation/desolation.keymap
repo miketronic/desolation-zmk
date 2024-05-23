@@ -328,6 +328,7 @@
 // |  XXXX   |  C  fn [Z]   D   [X]   T    |         |    X    |         | H mouse |  O tt,  |  Y  tt. |  XXXX   |
 //                     |   CCCV  |SPC/SHFT | RETURN  |    X    |   SPC   | SPC/ENT |   Paste |
 // ---------------------------------------------------------------------------------------------------------------
+            display-name = "DESOLATION";            
             bindings = <
                 &none &none       &tdW         &kp F          &lt NUM G          &kp M          &kp L    &kp U        &none &none
                 &none &none       &lt MACRO A  &kp R          &lt SYM S          &kp N          &kp E    &kp I        &none &none
@@ -337,6 +338,7 @@
         };
 
         SYM_layer {
+            display-name = "SYMBOL";
             bindings = <
                 &none &none       &grvtld   &kp STAR    &none                  &par   &bkt   &thn         &none &none
                 &none &none       &none     &kp PLUS    &none                  &cln   &sls   &pipe        &none &none
@@ -346,7 +348,7 @@
         };
 
         NUM_layer {
-            display-name = "NUM";
+            display-name = "NUMBER";
             bindings = <
                 &none &none       &kp TAB      &kp STAR  &none            &kp N7   &kp N8   &kp N9         &none &none
                 &none &none       &none        &none     &none            &kp N4   &kp N5   &kp N6         &none &none
@@ -356,7 +358,7 @@
         };
 
         MOUSE_layer {
-            display-name = "MSE";
+            display-name = "MOUSE";
             bindings = <
                 &none &none      &msc SCRL_UP    &mmv MOVE_UP     &msc SCRL_DOWN           &kp MINUS   &none  &kp BSPC      &none &none
                 &none &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT          &kp UNDER   &none  &none         &none &none
@@ -366,6 +368,7 @@
         };
 
         MACRO_layer {
+            display-name = "MACRO";
             bindings = <
                 &none &none       &none   &none   &none           &none &none  &none         &none &none
                 &none &none       &trans  &lines  &square         &none &none  &none         &none &none
@@ -375,7 +378,7 @@
         };
 
         FN_layer {
-            display-name = "FN";    
+            display-name = "FUNCTION";    
             bindings = <
                 &none &none   &cccv LC(C) LC(V)  &kp LC(LA(Q))   &kp LC(LA(G))    &kp F2       &kp UP      &kp DEL    &none &none
                 &none &none   &kp TAB            &none           &pg              &kp LEFT     &kp DOWN    &kp RIGHT  &none &none
