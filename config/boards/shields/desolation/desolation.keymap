@@ -31,19 +31,19 @@
 
 / {
     combos {
+
         compatible = "zmk,combos";
         combo_bootloader {
             timeout-ms = <50>;
             key-positions = <1 10>;
             bindings = <&bootloader>;
-
         };
     };
 
     behaviors {
+
         qesc: tap_dance_qesc {
             compatible = "zmk,behavior-tap-dance";
-            label = "tap_dance_qesc";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
             bindings = <&kp Q>, <&kp ESC>;
@@ -51,7 +51,6 @@
 
         bkt: tap_dance_bracket {
             compatible = "zmk,behavior-tap-dance";
-            label = "tap_dance_bracket";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LBKT>, <&kp RBKT>;
@@ -59,7 +58,6 @@
 
         brc: tap_dance_brace {
             compatible = "zmk,behavior-tap-dance";
-            label = "tap_dance_braces";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LBRC>, <&kp RBRC>;
@@ -67,7 +65,6 @@
 
         par: tap_dance_paren {
             compatible = "zmk,behavior-tap-dance";
-            label = "tap_dance_paren";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LPAR>, <&kp RPAR>;
@@ -75,7 +72,6 @@
 
         thn: tap_dance_then {
             compatible = "zmk,behavior-tap-dance";
-            label = "tap_dance_then";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LT>, <&kp GT>;
@@ -83,7 +79,6 @@
 
         skq: sticky_quick {
             compatible = "zmk,behavior-sticky-key";
-            label = "sticky_quick";
             #binding-cells = <1>;
             bindings = <&kp>;
             release-after-ms = <200>;
@@ -92,7 +87,6 @@
 
         hrm: homerow_mods {
            compatible = "zmk,behavior-hold-tap";
-           label = "homerow_mods";
            #binding-cells = <2>;
            tapping-term-ms = <250>;
            quick-tap-ms = <0>;
@@ -103,20 +97,13 @@
 
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <SYMBOL NUMBER>;
-            then-layer = <NAVIGATION>;
-        };
-    };
-
 
 
     keymap {
         compatible = "zmk,keymap";
 
         ALPHA_layer {
+            display-name = "-DESO-";  
             bindings = <
                 &qesc    &kp W           &kp E       &kp R       &kp T        &kp Y     &kp U            &kp I     &kp O    &kp P
                 &kp A   &kp S           &kp D       &kp F       &kp G        &kp H     &kp J            &kp K     &kp L    &kp SQT
@@ -126,6 +113,7 @@
         };
 
         SYMBOL_layer {
+            display-name = "SYMBOL";  
             bindings = <
                 &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT   &kp CARET   &kp AMPS    &kp STAR    &kp PIPE    &none
                 &kp GRAVE   &kp TILDE   &kp UNDER   &kp EQUAL   &none       &bkt        &brc        &par        &thn        &kp BSLH
@@ -135,6 +123,7 @@
         };
 
         NUMBER_layer {
+            display-name = "NUMBER";  
             bindings = <
                 &none       &none       &none       &none       &none       &none       &none       &none       &none       &none
                 &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0
@@ -144,15 +133,17 @@
         };
 
         NAVIGATION_layer {
+            display-name = "NAV";  
             bindings = <
                 &none           &kp F2          &out OUT_USB    &out OUT_BLE    &bt BT_CLR      &none       &kp HOME    &kp UP      &kp END     &kp BSPC 
                 &kp TAB         &none           &bt BT_SEL 0    &bt BT_SEL 1    &none           &none       &kp LEFT    &kp DOWN    &kp RIGHT   &kp RET
-                &none           &none           &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &none       &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp DEL    
+                &none           &none           &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &none       &none       &none       &none  &kp DEL    
                                 &trans          &trans          &trans          &trans          &trans      &trans      &trans      &trans
             >;
         };
 
         MOUSE_layer {
+            display-name = "MOUSE";  
             bindings = <
                 &kp PG_UP  &msc SCRL_UP      &mmv MOVE_UP      &msc SCRL_DOWN    &none    &none       &kp MINUS   &none    &none     &kp BSPC 
                 &kp END    &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mmv MOVE_RIGHT   &none    &none       &kp UNDER   &none    &none     &none
