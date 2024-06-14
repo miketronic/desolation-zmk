@@ -362,7 +362,7 @@
             bindings = <
                 &none &none      &msc SCRL_UP    &mmv MOVE_UP     &msc SCRL_DOWN           &kp MINUS   &none  &kp BSPC      &none &none
                 &none &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN   &mmv MOVE_RIGHT          &kp UNDER   &none  &none         &none &none
-                &none &none      &mkp MCLK       &mkp LCLK        &mkp RCLK                &none       &none  &none         &none &none
+                &none &none      &mkp MCLK       &mkp LCLK        &mkp RCLK                &none       &none  &soft_off     &none &none
                       &none      &mkp MCLK       &mkp LCLK        &mkp RCLK                &trans      &trans &trans        &none
             >;
         };
