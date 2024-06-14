@@ -328,12 +328,12 @@
 // |  XXXX   |  C  fn [Z]   D   [X]   T    |         |    X    |         | H mouse |  O tt,  |  Y  tt. |  XXXX   |
 //                     |   CCCV  |SPC/SHFT | RETURN  |    X    |   SPC   | SPC/ENT |   Paste |
 // ---------------------------------------------------------------------------------------------------------------
-            display-name = "DESOLATION";            
+            display-name = "-DESO-";            
             bindings = <
                 &none &none     &tdW           &kp F              &lt NUM G          &kp M          &kp L    &kp U        &none &none
                 &none &none     &lt MACRO A    &kp R              &lt SYM S          &kp N          &kp E    &kp I        &none &none
                 &none &none     &lt FN C       &hrm LCTRL D       &hrm LALT T        &lt MOUSE H    &tdO     &tdY         &none &none
-                &kp R &kp R &mt LSHIFT SPC &mt LSHIFT SPC         &mt RSHIFT RET &mt RSHIFT RET &kp DEL &kp BSPC
+                &kp R &cccv LC(C) LC(V) &mt LSHIFT SPC &mt LSHIFT SPC         &mt RSHIFT RET &mt RSHIFT RET &kp DEL &kp BSPC
             >;
         };
 
