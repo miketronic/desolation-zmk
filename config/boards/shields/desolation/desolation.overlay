@@ -26,6 +26,7 @@
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN0";
         diode-direction = "col2row";
+        wakeup-source;
         col-gpios
             = <&pro_micro 4 (GPIO_ACTIVE_HIGH)> // COL0
             , <&pro_micro 5 (GPIO_ACTIVE_HIGH)> // COL1
@@ -45,4 +46,48 @@
             , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // ROW3
             ;
     };
+
+
+	/* begin soft off feature */
+
+	keys {
+		compatible = "gpio-keys";
+		wakeup_key: wakeup_key {
+			gpios = <&gpio0 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+		};
+	};
+
+	behaviors {
+        hw_soft_off: hw_soft_off {
+            compatible = "zmk,behavior-soft-off";
+            #binding-cells = <0>;
+            hold-time-ms = <5000>;
+        };
+    };
+
+	side_band_behavior_triggers: side_band_behavior_triggers {
+        compatible = "zmk,kscan-sideband-behaviors";
+        wakeup-source;
+        kscan = <&kscan>;
+        soft_off {
+            column = <7>;
+            row = <3>;
+            bindings = <&hw_soft_off>;
+        };
+    };
+
+	wakeup_source: wakeup_source {
+        compatible = "zmk,gpio-key-wakeup-trigger";
+
+        trigger = <&wakeup_key>;
+        wakeup-source;
+    };
+
+	soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&wakeup_source>;
+    };
+
+	/* end soft off feature */
+	
 };
