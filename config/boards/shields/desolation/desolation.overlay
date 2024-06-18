@@ -7,7 +7,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 / {
     chosen {
-        zmk,kscan = &kscan0;
+        zmk,kscan = &side_band_behavior_triggers;
         zmk,matrix_transform = &default_transform;
     };
     default_transform: keymap_transform_0 {
@@ -22,9 +22,9 @@
         >;
     };
 
-    kscan0: kscan {
+    kscan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN0";
+        label = "KSCAN";
         diode-direction = "col2row";
         wakeup-source;
         col-gpios
@@ -60,12 +60,8 @@
         hw_soft_off: hw_soft_off {
             compatible = "zmk,behavior-soft-off";
             #binding-cells = <0>;
+            hold-time-ms = <5000>;
         };
-    };
-
-    soft_off_direct_scan: soft_off_direct_scan {
-        compatible = "zmk,kscan-gpio-direct";
-        input-keys = <&wakeup_key>;
     };
 
     wakeup_source: wakeup_source {
@@ -84,7 +80,7 @@
     side_band_behavior_triggers {
         compatible = "zmk,kscan-sideband-behaviors";
         wakeup-source;
-        kscan = <&soft_off_direct_scan>;
+        kscan = <&kscan>;
         soft_off {
             column = <7>;
             row = <3>;
