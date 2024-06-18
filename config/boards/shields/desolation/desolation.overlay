@@ -48,7 +48,7 @@
     };
 
 
-/ {
+    
     keys {
         compatible = "gpio-keys";
         wakeup_key: wakeup_key {
