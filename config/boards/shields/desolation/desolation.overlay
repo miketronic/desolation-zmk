@@ -77,7 +77,7 @@
         wakeup-sources = <&wakeup_source>;
     };
 
-    side_band_behavior_triggers {
+    side_band_behavior_triggers: side_band_behavior_triggers {
         compatible = "zmk,kscan-sideband-behaviors";
         wakeup-source;
         kscan = <&kscan>;
