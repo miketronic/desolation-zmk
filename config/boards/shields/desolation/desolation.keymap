@@ -15,8 +15,8 @@
 #    define MS_ACT(key) &lt MSE key
 
 #define ALPHA       0
-#define 1           1
-#define 2           2
+#define ONE         1
+#define TWO         2
 
 &mt {
     flavor = "tap-preferred";
@@ -55,8 +55,8 @@
             >;
         };
 
-        1_layer {
-            display-name = "LAYER1";  
+        ONE_layer {
+            display-name = "ONE";  
             bindings = <
                 &kp ESC    &kp F1      &kp F2    &kp F3        &kp F4       &kp N7   &kp N8    &kp N9    &kp MINUS    &kp BSPC
                 &kp TAB    &kp F5      &kp F6    &kp F7        &kp F8       &kp N4   &kp N5    &kp N6    &kp SEMI     &kp APOS
@@ -65,8 +65,8 @@
             >;
         };
 
-        2_layer {
-            display-name = "LAYER2";  
+        TWO_layer {
+            display-name = "TWO";  
             bindings = <
                 &trans      &trans      &trans      &trans      &kp INS     &kp PSCRN   &kp DEL     &kp END     &kp TILDE   &kp PG_UP
                 &trans      &trans      &trans      &trans      &trans      &kp EQUAL   &kp LBKT    &kp RBKT    &kp UP      &kp PG_DN
